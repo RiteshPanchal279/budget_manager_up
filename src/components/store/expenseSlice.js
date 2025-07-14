@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import {
+  loadFromLocalStorage,
+  saveToLocalStorage,
+} from "../../utils/localStorageUtils";
 export const expenseSlice = createSlice({
   name: "expenses",
   initialState: {
-    expenses: [{ id: Date.now(), text: "Example", cost: 0, category: "Food" }],
-    totalAmt: 20000,
+    expenses: loadFromLocalStorage("expenses", [
+      { id: Date.now(), text: "Example", cost: 0, category: "Food" },
+    ]),
+    totalAmt: loadFromLocalStorage("totalAmt", 20000),
     spendAmt: 0,
-    remainAmt: 20000,
+    remainAmt: loadFromLocalStorage("remainAmt", 20000),
     isEdit: false,
     searchText: "",
-    savingsGoal: {
+    savingsGoal: loadFromLocalStorage("savingsGoal", {
       title: "",
       amount: 0,
-    },
+    }),
   },
   reducers: {
     addExpense: (state, action) => {
@@ -23,11 +28,13 @@ export const expenseSlice = createSlice({
         category: action.payload.category,
       };
       state.expenses.push(expense);
+      saveToLocalStorage("expenses", state.expenses);
     },
     deleteExp: (state, action) => {
       state.expenses = state.expenses.filter(
         (exp) => exp.id !== action.payload
       );
+      saveToLocalStorage("expenses", state.expenses);
     },
     spentAmount: (state) => {
       state.spendAmt = state.expenses.reduce(
@@ -37,18 +44,21 @@ export const expenseSlice = createSlice({
     },
     remainAmount: (state) => {
       state.remainAmt = state.totalAmt - state.spendAmt;
+      saveToLocalStorage("remainAmt", state.remainAmt);
     },
     isEditable: (state) => {
       state.isEdit = !state.isEdit;
     },
     manageBudget: (state, action) => {
       state.totalAmt = action.payload;
+      saveToLocalStorage("totalAmt", state.totalAmt);
     },
     setSearchText: (state, action) => {
       state.searchText = action.payload;
     },
     setSavingsGoal: (state, action) => {
       state.savingsGoal = action.payload;
+      saveToLocalStorage("savingsGoal", state.savingsGoal);
     },
   },
 });
