@@ -1,5 +1,6 @@
 import AddExpense from "./components/AddExpense";
 import Budget from "./components/Budget";
+import CategoryPieChart from "./components/CategoryPieChart";
 import ExpenseList from "./components/ExpenseList";
 import OverheadWarning from "./components/OverheadWarning";
 
@@ -12,6 +13,7 @@ function App() {
     <div className="flex flex-col max-w-[990px] ml-auto mr-auto p-3">
       <h1 className="text-3xl font-semibold mb-5">My Budget Planner</h1>
       <OverheadWarning />
+      <CategoryPieChart />
       <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-2">
         <div>
           <Budget />
