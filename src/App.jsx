@@ -5,6 +5,7 @@ import ExpenseList from "./components/ExpenseList";
 import OverheadWarning from "./components/OverheadWarning";
 
 import Remaining from "./components/Remaining";
+import SavingsTips from "./components/SavingsTips";
 import Search from "./components/Search";
 import Spent from "./components/Spent";
 
@@ -14,6 +15,7 @@ function App() {
       <h1 className="text-3xl font-semibold mb-5">My Budget Planner</h1>
       <OverheadWarning />
       <CategoryPieChart />
+      <SavingsTips />
       <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-2">
         <div>
           <Budget />
