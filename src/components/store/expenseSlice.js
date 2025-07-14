@@ -9,6 +9,10 @@ export const expenseSlice = createSlice({
     remainAmt: 20000,
     isEdit: false,
     searchText: "",
+    savingsGoal: {
+      title: "",
+      amount: 0,
+    },
   },
   reducers: {
     addExpense: (state, action) => {
@@ -43,7 +47,9 @@ export const expenseSlice = createSlice({
     setSearchText: (state, action) => {
       state.searchText = action.payload;
     },
-    
+    setSavingsGoal: (state, action) => {
+      state.savingsGoal = action.payload;
+    },
   },
 });
 
@@ -55,6 +61,7 @@ export const {
   isEditable,
   manageBudget,
   setSearchText,
+  setSavingsGoal,
 } = expenseSlice.actions;
 
 export const expenseReducer = expenseSlice.reducer;

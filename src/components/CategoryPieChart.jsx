@@ -19,13 +19,11 @@ const CategoryPieChart = () => {
     const cat = exp.category || "Others";
     categoryTotals[cat] = (categoryTotals[cat] || 0) + Number(exp.cost);
   });
-  console.log(categoryTotals)
 
   const data = Object.entries(categoryTotals).map(([category, cost]) => ({
     name: category,
     value: cost,
   }));
-  console.log(data)
 
   if (data.length === 0) return null;
 
