@@ -7,7 +7,7 @@ export const expenseSlice = createSlice({
   name: "expenses",
   initialState: {
     expenses: loadFromLocalStorage("expenses", [
-      { id: Date.now(), text: "Example", cost: 0, category: "Food" },
+      { id: Date.now(), text: "Example", cost: 0, category: "Others" },
     ]),
     totalAmt: loadFromLocalStorage("totalAmt", 20000),
     spendAmt: 0,

@@ -46,8 +46,9 @@ const AddExpense = () => {
           />
         </div>
         <div className="flex flex-col gap-1">
+          <label htmlFor="category">Category</label>
           <select
-            className="border px-2 py-1 rounded w-full"
+            className="border rounded outline-none px-2 py-1 mr-2"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
