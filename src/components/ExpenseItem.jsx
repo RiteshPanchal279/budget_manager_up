@@ -16,7 +16,7 @@ const ExpenseItem = ({id,cost,text,category}) => {
   return (
     <li className='flex bg-gray-300 p-3 gap-1 justify-between items-center rounded'>
       {text}
-      <div className=''>
+      <div className='text-cyan-800 font-semibold'>
         {category}
       </div>
       <div className='flex items-center gap-10'>

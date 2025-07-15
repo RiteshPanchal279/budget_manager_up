@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,nanoid } from "@reduxjs/toolkit";
 import {
   loadFromLocalStorage,
   saveToLocalStorage,
@@ -7,7 +7,7 @@ export const expenseSlice = createSlice({
   name: "expenses",
   initialState: {
     expenses: loadFromLocalStorage("expenses", [
-      { id: Date.now(), text: "Example", cost: 0, category: "Others" },
+      { id: nanoid(), text: "Example", cost: 0, category: "Others",date:new Date().toISOString() },
     ]),
     totalAmt: loadFromLocalStorage("totalAmt", 20000),
     spendAmt: 0,
@@ -22,10 +22,11 @@ export const expenseSlice = createSlice({
   reducers: {
     addExpense: (state, action) => {
       const expense = {
-        id: Date.now(),
+        id: nanoid(),
         text: action.payload.text,
         cost: action.payload.cost,
         category: action.payload.category,
+        date:new Date().toISOString()
       };
       state.expenses.push(expense);
       saveToLocalStorage("expenses", state.expenses);
