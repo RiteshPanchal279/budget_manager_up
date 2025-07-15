@@ -65,7 +65,7 @@ const AddExpense = () => {
         type="submit"
         className="border mt-2 bg-blue-500 text-white px-4 py-1 rounded"
       >
-        Save
+        Add
       </button>
     </form>
   );

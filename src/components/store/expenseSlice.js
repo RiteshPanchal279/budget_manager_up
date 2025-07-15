@@ -10,7 +10,7 @@ export const expenseSlice = createSlice({
       { id: nanoid(), text: "Example", cost: 0, category: "Others",date:new Date().toISOString() },
     ]),
     totalAmt: loadFromLocalStorage("totalAmt", 20000),
-    spendAmt: 0,
+    spendAmt: loadFromLocalStorage("spendAmt", 0),
     remainAmt: loadFromLocalStorage("remainAmt", 20000),
     isEdit: false,
     searchText: "",
@@ -42,6 +42,7 @@ export const expenseSlice = createSlice({
         (total, exp) => exp.cost + total,
         0
       );
+      saveToLocalStorage("spendAmt", state.spendAmt);
     },
     remainAmount: (state) => {
       state.remainAmt = state.totalAmt - state.spendAmt;

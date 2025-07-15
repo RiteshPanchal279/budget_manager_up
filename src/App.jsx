@@ -28,11 +28,11 @@ function App() {
           <Spent />
         </div>
       </div>
-      <h1 className="text-2xl font-semibold mb-2 mt-4">Expenses</h1>
+      <h1 className="text-2xl font-semibold mb-2 mt-4">Add Expenses</h1>
       <div>
         <AddExpense />
       </div>
-      <h1 className="text-2xl font-semibold mb-2 mt-4">Add Expenses</h1>
+      <h1 className="text-2xl font-semibold mb-2 mt-4" >Expenses</h1>
       <div>
         <Search />
         <ExpenseList />
